@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amrakibe <amrakibe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 17:09:00 by amrakibe          #+#    #+#             */
-/*   Updated: 2022/03/14 21:03:52 by amrakibe         ###   ########.fr       */
+/*   Created: 2022/03/14 20:59:17 by amrakibe          #+#    #+#             */
+/*   Updated: 2022/03/14 21:44:34 by amrakibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,18 @@ void	send(char c, int pid)
 		ckill = kill(pid, SIGUSR1 + bit);
 		if (ckill == -1)
 		{
-			write(1, "pid is incorrect", 17);
+			write(1, "pid is incorrect\n", 17);
 			exit(1);
 		}
 		usleep(800);
 		i--;
 	}
+}
+
+void	handler(int i)
+{
+	(void) i;
+	write(1, "success send\n", 14);
 }
 
 int	main(int ac, char **av)
@@ -39,17 +45,20 @@ int	main(int ac, char **av)
 	int	pid;
 
 	i = 0;
+	signal(SIGUSR1, &handler);
 	if (ac != 3)
 	{
-		write(1, "invalid arguments", 18);
-		exit(EXIT_FAILURE);
+		write(1, "invalid arguments\n", 18);
+		exit(1);
 	}
 	pid = ft_atoi(av[1]);
 	if (pid < 1)
 	{
 		write(1, "invalid pid", 12);
-		exit(EXIT_FAILURE);
+		exit(1);
 	}
 	while (av[2][i])
 		send(av[2][i++], pid);
+	send('\0', pid);
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amrakibe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amrakibe <amrakibe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 19:34:12 by amrakibe          #+#    #+#             */
-/*   Updated: 2022/03/14 19:40:49 by amrakibe         ###   ########.fr       */
+/*   Updated: 2022/03/14 20:50:50 by amrakibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void		myhandl(int siguser, siginfo_t *list_info, void *on);
 void		send(char c, int pid);
 void		ft_putnbr(int n);
 int			ft_putchar(char c);
-long long	ft_atoi(const char *nptr);
+// long long	ft_atoi(const char *nptr);
 int			ft_strlen(char *str);
+int			ft_atoi(const char *str);
+int			ft_isdigit(int c);
 
 #endif
