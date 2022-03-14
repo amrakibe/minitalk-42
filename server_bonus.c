@@ -6,7 +6,7 @@
 /*   By: amrakibe <amrakibe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:19:04 by amrakibe          #+#    #+#             */
-/*   Updated: 2022/03/14 21:19:51 by amrakibe         ###   ########.fr       */
+/*   Updated: 2022/03/14 21:52:32 by amrakibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ void	myhandl(int siguser, siginfo_t *info, void *on)
 	i++;
 	if (i == 8)
 	{
-		write(1, &c, 1);
+		if (c == '\0')
+			kill(info->si_pid, SIGUSR1);
+		else
+		{
+			write(1, &c, 1);
+		}
 		c = 0;
 		i = 0;
 	}
