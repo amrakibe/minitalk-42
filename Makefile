@@ -26,3 +26,4 @@ clean:
 	$(RM) $(O_CLIENT) $(O_SERVER) $(O_MINITALK_UTILE)
 fclean: clean
 	$(RM) server client
+re:	fclean all
