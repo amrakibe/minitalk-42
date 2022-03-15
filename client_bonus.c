@@ -6,7 +6,7 @@
 /*   By: amrakibe <amrakibe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:59:17 by amrakibe          #+#    #+#             */
-/*   Updated: 2022/03/14 21:44:34 by amrakibe         ###   ########.fr       */
+/*   Updated: 2022/03/15 16:23:57 by amrakibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int ac, char **av)
 	pid = ft_atoi(av[1]);
 	if (pid < 1)
 	{
-		write(1, "invalid pid", 12);
+		write(1, "invalid pid\n", 13);
 		exit(1);
 	}
 	while (av[2][i])

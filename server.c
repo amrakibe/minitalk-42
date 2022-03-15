@@ -6,19 +6,19 @@
 /*   By: amrakibe <amrakibe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 17:08:22 by amrakibe          #+#    #+#             */
-/*   Updated: 2022/03/14 18:07:07 by amrakibe         ###   ########.fr       */
+/*   Updated: 2022/03/15 16:20:37 by amrakibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	myhandl(int siguser, siginfo_t *info, void *on)
+void	myhandl(int siguser, siginfo_t *info, void *no)
 {
 	static char	c;
 	static int	i;
 	static int	client_pid;
 
-	(void)on;
+	(void)no;
 	if (client_pid != 0 && client_pid != info->si_pid)
 	{
 		write(1, "\n", 1);
@@ -42,8 +42,12 @@ int	main(void)
 
 	a.sa_sigaction = &myhandl;
 	a.sa_flags = SA_SIGINFO;
+/*
+If SA_SIGINFO is specified in sa_flags, then sa_sigaction (instead of sa_handler) specifies the signal-handling function for signum. This function receives the signal number as its first argument, a pointer to a siginfo_t as its second argument and a pointer to a ucontext_t (cast to void *) as its third argument
+*/
 	sigaction(SIGUSR1, &a, NULL);
 	sigaction(SIGUSR2, &a, NULL);
+	write(1,"pid is => ",11);
 	ft_putnbr(getpid());
 	write(1, "\n", 1);
 	while (1)

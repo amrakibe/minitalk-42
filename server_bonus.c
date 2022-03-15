@@ -6,7 +6,7 @@
 /*   By: amrakibe <amrakibe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:19:04 by amrakibe          #+#    #+#             */
-/*   Updated: 2022/03/14 21:52:32 by amrakibe         ###   ########.fr       */
+/*   Updated: 2022/03/15 16:22:10 by amrakibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	main(void)
 	a.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &a, NULL);
 	sigaction(SIGUSR2, &a, NULL);
+	write(1,"Pid is => ",11);
 	ft_putnbr(getpid());
 	write(1, "\n", 1);
 	while (1)

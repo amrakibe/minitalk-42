@@ -6,7 +6,7 @@
 /*   By: amrakibe <amrakibe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 17:09:00 by amrakibe          #+#    #+#             */
-/*   Updated: 2022/03/14 21:03:52 by amrakibe         ###   ########.fr       */
+/*   Updated: 2022/03/15 16:24:16 by amrakibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	send(char c, int pid)
 {
-	int	i;
-	int	bit;
-	int	ckill;
+	int		i;
+	int		bit;
+	char	ckill;
 
 	i = 7;
 	while (i >= 0)
@@ -25,7 +25,7 @@ void	send(char c, int pid)
 		ckill = kill(pid, SIGUSR1 + bit);
 		if (ckill == -1)
 		{
-			write(1, "pid is incorrect", 17);
+			write(1, "pid is incorrect\n", 18);
 			exit(1);
 		}
 		usleep(800);
@@ -41,13 +41,13 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac != 3)
 	{
-		write(1, "invalid arguments", 18);
+		write(1, "invalid arguments\n", 19);
 		exit(EXIT_FAILURE);
 	}
 	pid = ft_atoi(av[1]);
 	if (pid < 1)
 	{
-		write(1, "invalid pid", 12);
+		write(1, "invalid pid\n", 13);
 		exit(EXIT_FAILURE);
 	}
 	while (av[2][i])
