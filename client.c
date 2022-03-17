@@ -6,7 +6,7 @@
 /*   By: amrakibe <amrakibe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 17:09:00 by amrakibe          #+#    #+#             */
-/*   Updated: 2022/03/15 16:24:16 by amrakibe         ###   ########.fr       */
+/*   Updated: 2022/03/17 22:49:22 by amrakibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ int	main(int ac, char **av)
 	}
 	while (av[2][i])
 		send(av[2][i++], pid);
+	return (0);
 }
