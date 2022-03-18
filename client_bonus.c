@@ -6,7 +6,7 @@
 /*   By: amrakibe <amrakibe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:59:17 by amrakibe          #+#    #+#             */
-/*   Updated: 2022/03/15 16:23:57 by amrakibe         ###   ########.fr       */
+/*   Updated: 2022/03/18 17:06:40 by amrakibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	send(char c, int pid)
 			write(1, "pid is incorrect\n", 17);
 			exit(1);
 		}
-		usleep(800);
+		usleep(500);
 		i--;
 	}
 }
